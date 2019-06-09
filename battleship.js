@@ -25,7 +25,20 @@ var model = {
     ships:
         [{ locations: ["06", "16", "26"], hits: ["hit", "", ""] },
         { locations: ["24", "34", "44"], hits: ["hit", "", ""] },
-        { locations: ["10", "11", "12"], hits: ["hit", "", ""] }]
+        { locations: ["10", "11", "12"], hits: ["hit", "", ""] }],
+
+        fire: function(guess){
+            for(var i =0; i<this.numShips; i++){
+                var ship = this.ship[i];
+                locations = ship.locations;
+                var index = locations.indexOf(guess);
+                if(index >=0){
+                    ships.hits[index] = "hit";
+                    return true;
+                }
+            }
+            return false;
+        }
 
 
 };
